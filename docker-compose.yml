@@ -1,0 +1,50 @@
+services:
+
+  postgres:
+    image: postgres:17
+    container_name: loan-platform-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: loan_sandbox
+      POSTGRES_USER: loan_user
+      POSTGRES_PASSWORD: loan_password
+
+    ports:
+      - "5433:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U loan_user -d loan_sandbox"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7
+    container_name: loan-platform-redis
+    restart: unless-stopped
+
+    ports:
+      - "6380:6379"
+
+    volumes:
+      - redis_data:/data
+
+    command: redis-server --appendonly yes
+
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+
+  postgres_data:
+    name: loan-platform-postgres-data
+
+  redis_data:
+    name: loan-platform-redis-data
