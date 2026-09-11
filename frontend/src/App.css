@@ -369,3 +369,796 @@ button:disabled {
   text-align: center;
   color: #667085;
 }
+/* ================================
+   KYC TABLE
+   ================================ */
+
+.kyc-table-container {
+  background: white;
+  border: 1px solid #eaecf0;
+  border-radius: 14px;
+  overflow-x: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.kyc-table {
+  width: 100%;
+  min-width: 1150px;
+  border-collapse: collapse;
+}
+
+.kyc-table th {
+  text-align: left;
+  padding: 16px 18px;
+  background: #f9fafb;
+  color: #667085;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  border-bottom: 1px solid #eaecf0;
+}
+
+.kyc-table td {
+  padding: 18px;
+  border-bottom: 1px solid #eaecf0;
+  font-size: 14px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.kyc-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.kyc-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.kyc-customer-id {
+  font-family: monospace;
+  font-size: 13px;
+  color: #475467;
+}
+
+.kyc-status {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.kyc-status-pending {
+  background: #fffaeb;
+  color: #b54708;
+}
+
+.kyc-status-verified {
+  background: #ecfdf3;
+  color: #15803d;
+}
+
+.kyc-status-rejected {
+  background: #fef3f2;
+  color: #b42318;
+}
+
+.kyc-link {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 8px;
+  background: #eef2ff;
+  color: #2563eb;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.kyc-link:hover {
+  background: #e0e7ff;
+}
+
+.kyc-date {
+  color: #667085;
+  font-size: 13px;
+}
+/* ================================
+   KYC ACTIONS
+   ================================ */
+
+.kyc-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.kyc-approve-button,
+.kyc-reject-button {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.kyc-approve-button {
+  background: #ecfdf3;
+  color: #15803d;
+}
+
+.kyc-approve-button:hover {
+  background: #dcfce7;
+}
+
+.kyc-reject-button {
+  background: #fef3f2;
+  color: #b42318;
+}
+
+.kyc-reject-button:hover {
+  background: #fee4e2;
+}
+
+.kyc-approve-button:disabled,
+.kyc-reject-button:disabled,
+.secondary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.kyc-no-action {
+  color: #98a2b3;
+  font-size: 13px;
+}
+
+.kyc-rejection-reason {
+  margin-top: 7px;
+  max-width: 220px;
+  color: #b42318;
+  font-size: 12px;
+  white-space: normal;
+  line-height: 1.4;
+}
+
+/* ================================
+   KYC MODAL
+   ================================ */
+
+.kyc-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 24, 40, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.kyc-modal {
+  width: 100%;
+  max-width: 520px;
+  background: white;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 20px 50px rgba(16, 24, 40, 0.2);
+}
+
+.kyc-modal h2 {
+  margin: 0 0 8px;
+}
+
+.kyc-modal p {
+  margin: 0 0 20px;
+  color: #667085;
+  font-size: 14px;
+}
+
+.kyc-rejection-input {
+  width: 100%;
+  min-height: 120px;
+  padding: 12px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.kyc-rejection-input:focus {
+  border-color: #667085;
+}
+
+.kyc-character-count {
+  margin-top: 6px;
+  text-align: right;
+  color: #98a2b3;
+  font-size: 12px;
+}
+
+.kyc-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.secondary-button {
+  border: 1px solid #d0d5dd;
+  background: white;
+  color: #344054;
+  border-radius: 8px;
+  padding: 9px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.secondary-button:hover {
+  background: #f9fafb;
+}
+
+.message-success {
+  background: #ecfdf3;
+  border: 1px solid #abefc6;
+  color: #067647;
+}
+
+.message-error {
+  background: #fef3f2;
+  border: 1px solid #fecdca;
+  color: #b42318;
+}
+/* ================================
+   HOME PAGE
+   ================================ */
+
+.home-page {
+  min-height: 100vh;
+  background: #f5f7fb;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-header {
+  height: 72px;
+  background: white;
+  border-bottom: 1px solid #eaecf0;
+  display: flex;
+  align-items: center;
+  padding: 0 48px;
+}
+
+.home-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.home-brand .logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.home-brand strong {
+  display: block;
+  font-size: 18px;
+  color: #101828;
+}
+
+.home-brand span {
+  display: block;
+  margin-top: 2px;
+  color: #667085;
+  font-size: 12px;
+}
+
+.home-content {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 70px 24px 50px;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+.home-hero {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 50px;
+}
+
+.home-badge {
+  display: inline-block;
+  padding: 7px 14px;
+  border-radius: 20px;
+  background: #eef4ff;
+  color: #175cd3;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.home-hero h1 {
+  margin: 0;
+  font-size: 46px;
+  line-height: 1.15;
+  color: #101828;
+  letter-spacing: -1.5px;
+}
+
+.home-hero p {
+  max-width: 650px;
+  margin: 20px auto 0;
+  color: #667085;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.home-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.home-option-card {
+  background: white;
+  border: 1px solid #eaecf0;
+  border-radius: 18px;
+  padding: 32px;
+  box-shadow: 0 8px 24px rgba(16, 24, 40, 0.05);
+  text-align: center;
+}
+
+.home-option-icon {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 18px;
+  border-radius: 14px;
+  background: #f2f4f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+}
+
+.home-option-card h2 {
+  margin: 0;
+  color: #101828;
+  font-size: 22px;
+}
+
+.home-option-card p {
+  min-height: 48px;
+  margin: 12px 0 24px;
+  color: #667085;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.home-option-card .primary-button,
+.home-option-card .secondary-button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.home-footer {
+  padding: 22px;
+  text-align: center;
+  color: #98a2b3;
+  font-size: 13px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.text-button {
+  width: 100%;
+  margin-top: 16px;
+  border: none;
+  background: transparent;
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.text-button:hover {
+  text-decoration: underline;
+}
+
+.sandbox-otp {
+  margin: 12px 0;
+  padding: 10px;
+  border-radius: 8px;
+  background: #fffaeb;
+  color: #b54708;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .home-header {
+    padding: 0 20px;
+  }
+
+  .home-content {
+    padding: 45px 18px 35px;
+  }
+
+  .home-hero h1 {
+    font-size: 34px;
+  }
+
+  .home-hero p {
+    font-size: 15px;
+  }
+
+  .home-options {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .home-option-card {
+    padding: 26px 22px;
+  }
+}
+
+
+/* ================================
+   CUSTOMER PROFILE
+   ================================ */
+
+.profile-mobile {
+  margin: 16px 0 20px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: #f9fafb;
+  border: 1px solid #eaecf0;
+  text-align: left;
+}
+
+.profile-mobile span {
+  display: block;
+  color: #667085;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.profile-mobile strong {
+  display: block;
+  color: #101828;
+  font-size: 14px;
+  word-break: break-all;
+}
+
+/* ================================
+   CUSTOMER DASHBOARD
+   ================================ */
+
+.customer-dashboard {
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+
+.customer-header {
+  height: 72px;
+  background: white;
+  border-bottom: 1px solid #eaecf0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+}
+
+.customer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.customer-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.customer-brand strong {
+  display: block;
+  color: #101828;
+  font-size: 17px;
+}
+
+.customer-brand span {
+  display: block;
+  color: #667085;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.customer-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 45px 24px 60px;
+}
+
+.customer-welcome {
+  margin-bottom: 25px;
+}
+
+.customer-welcome-label {
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.customer-welcome h1 {
+  margin: 8px 0 8px;
+  font-size: 34px;
+  color: #101828;
+}
+
+.customer-welcome p {
+  margin: 0;
+  color: #667085;
+  font-size: 15px;
+}
+
+.customer-profile-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 40px;
+}
+
+.customer-profile-summary > div {
+  background: white;
+  border: 1px solid #eaecf0;
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.customer-profile-summary span {
+  display: block;
+  color: #667085;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.customer-profile-summary strong {
+  color: #101828;
+  font-size: 14px;
+  word-break: break-all;
+}
+
+.customer-section h2 {
+  color: #101828;
+  font-size: 21px;
+  margin-bottom: 18px;
+}
+
+.customer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.customer-feature-card {
+  background: white;
+  border: 1px solid #eaecf0;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(16, 24, 40, 0.04);
+}
+
+.customer-feature-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 11px;
+  background: #f2f4f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+  margin-bottom: 15px;
+}
+
+.customer-feature-card h3 {
+  margin: 0;
+  color: #101828;
+  font-size: 17px;
+}
+
+.customer-feature-card p {
+  min-height: 44px;
+  margin: 9px 0 18px;
+  color: #667085;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.customer-feature-card button {
+  width: 100%;
+}
+
+/* ================================
+   CUSTOMER KYC
+   ================================ */
+
+.customer-kyc-card {
+  max-width: 560px;
+}
+
+.customer-kyc-card select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  background: white;
+  font-size: 14px;
+}
+
+.kyc-info-box {
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background: #f9fafb;
+  border: 1px solid #eaecf0;
+  text-align: left;
+}
+
+.kyc-info-box strong {
+  display: block;
+  color: #101828;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.kyc-info-box span {
+  color: #667085;
+  font-size: 13px;
+}
+
+.field-help {
+  display: block;
+  margin-top: -12px;
+  margin-bottom: 18px;
+  color: #667085;
+  font-size: 11px;
+  text-align: left;
+}
+
+.customer-kyc-result {
+  text-align: left;
+}
+
+.customer-kyc-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background: #f9fafb;
+  border: 1px solid #eaecf0;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.customer-kyc-status > span {
+  color: #667085;
+  font-size: 14px;
+}
+
+.kyc-detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 13px 0;
+  border-bottom: 1px solid #eaecf0;
+}
+
+.kyc-detail span {
+  color: #667085;
+  font-size: 13px;
+}
+
+.kyc-detail strong {
+  color: #101828;
+  font-size: 13px;
+  text-align: right;
+  word-break: break-all;
+}
+
+.kyc-rejection {
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: 9px;
+  background: #fef3f2;
+  border: 1px solid #fecdca;
+}
+
+.kyc-rejection span {
+  display: block;
+  color: #b42318;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.kyc-rejection strong {
+  color: #912018;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.kyc-pending-message,
+.kyc-verified-message,
+.kyc-rejected-message {
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: 9px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.kyc-pending-message {
+  background: #fffaeb;
+  color: #b54708;
+}
+
+.kyc-verified-message {
+  background: #ecfdf3;
+  color: #15803d;
+}
+
+.kyc-rejected-message {
+  background: #fef3f2;
+  color: #b42318;
+}
+
+@media (max-width: 800px) {
+  .customer-header {
+    padding: 0 20px;
+  }
+
+  .customer-content {
+    padding: 35px 18px 45px;
+  }
+
+  .customer-profile-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .customer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .customer-welcome h1 {
+    font-size: 29px;
+  }
+}

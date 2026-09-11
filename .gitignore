@@ -53,3 +53,7 @@ logs/
 
 *.tmp
 *.temp
+
+# Runtime PID files
+backend.pid
+frontend.pid

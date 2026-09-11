@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const API_BASE_URL = "http://172.16.5.227:8081";
 
-function AdminLogin({ onLogin }) {
+function AdminLogin({ onLogin, onBackToHome }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -43,7 +43,6 @@ function AdminLogin({ onLogin }) {
       );
 
       onLogin(data.accessToken);
-
     } catch (error) {
       setMessage(error.message);
     } finally {
@@ -54,10 +53,7 @@ function AdminLogin({ onLogin }) {
   return (
     <div className="app">
       <div className="card">
-
-        <div className="logo">
-          LP
-        </div>
+        <div className="logo">LP</div>
 
         <h1>Admin Portal</h1>
 
@@ -66,7 +62,6 @@ function AdminLogin({ onLogin }) {
         </p>
 
         <form onSubmit={login}>
-
           <label>Username</label>
 
           <input
@@ -76,6 +71,7 @@ function AdminLogin({ onLogin }) {
             onChange={(event) =>
               setUsername(event.target.value)
             }
+            disabled={loading}
           />
 
           <label>Password</label>
@@ -87,6 +83,7 @@ function AdminLogin({ onLogin }) {
             onChange={(event) =>
               setPassword(event.target.value)
             }
+            disabled={loading}
           />
 
           <button
@@ -99,7 +96,6 @@ function AdminLogin({ onLogin }) {
           >
             {loading ? "Signing in..." : "Admin Login"}
           </button>
-
         </form>
 
         {message && (
@@ -108,6 +104,14 @@ function AdminLogin({ onLogin }) {
           </div>
         )}
 
+        <button
+          type="button"
+          className="text-button"
+          onClick={onBackToHome}
+          disabled={loading}
+        >
+          Back to Home
+        </button>
       </div>
     </div>
   );

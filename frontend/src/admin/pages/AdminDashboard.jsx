@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const API_BASE_URL = "http://172.16.5.227:8081";
 
-function AdminDashboard({ token, onLogout, onCustomers }) {
+function AdminDashboard({ token, onLogout, onCustomers, onKyc }) {
   const [dashboard, setDashboard] = useState(null);
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState("");
@@ -152,7 +152,7 @@ function AdminDashboard({ token, onLogout, onCustomers }) {
               <p>
                 Review customer KYC
               </p>
-              <button>
+              <button onClick={onKyc}>
                 KYC Management
               </button>
             </div>
