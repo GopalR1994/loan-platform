@@ -72,7 +72,7 @@ function CustomerRegister({ onRegistered, onBackToHome }) {
 
     try {
       const response = await fetch(
-        `${API_BASE_URL}/api/v1/auth/otp/verify`,
+        `${API_BASE_URL}/api/v1/auth/otp/register/verify`,
         {
           method: "POST",
           headers: {

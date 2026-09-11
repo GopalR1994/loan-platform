@@ -1,5 +1,6 @@
 package com.loanplatform.common;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -48,6 +49,37 @@ public class GlobalExceptionHandler {
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
                 .body(response);
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<Map<String, Object>> handleDataIntegrityViolation(
+            DataIntegrityViolationException exception) {
+
+        String message = "Duplicate value already exists.";
+
+        String exceptionMessage = exception.getMostSpecificCause() != null
+                ? exception.getMostSpecificCause().getMessage()
+                : exception.getMessage();
+
+        if (exceptionMessage != null) {
+
+            if (exceptionMessage.contains("uq_customers_email")) {
+                message = "Email address is already registered.";
+            }
+
+            if (exceptionMessage.contains("uq_customer_kyc_id_number")) {
+                message = "National ID is already registered.";
+            }
+
+            if (exceptionMessage.contains("customers_mobile_number_key")) {
+                message = "Mobile number is already registered.";
+            }
+        }
+
+        return buildResponse(
+                HttpStatus.BAD_REQUEST,
+                message
+        );
     }
 
     @ExceptionHandler(Exception.class)

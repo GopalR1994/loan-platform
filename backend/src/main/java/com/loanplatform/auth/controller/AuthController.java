@@ -138,4 +138,46 @@ public class AuthController {
                 )
         );
     }
+        /*
+     * Verify OTP for Customer Registration
+     *
+     * New customers can verify their registration OTP.
+     * The customer record will be created after profile completion.
+     */
+    @PostMapping("/otp/register/verify")
+    public ResponseEntity<AuthResponse> verifyRegistrationOtp(
+            @Valid @RequestBody OtpVerifyRequest request) {
+
+        if (customerRepository.existsByMobileNumber(
+                request.mobileNumber())) {
+
+            throw new IllegalArgumentException(
+                    "Mobile number is already registered. Please use Customer Login."
+            );
+        }
+
+        boolean valid = otpService.verifyOtp(
+                request.mobileNumber(),
+                request.otp()
+        );
+
+        if (!valid) {
+            throw new IllegalArgumentException(
+                    "Invalid or expired OTP"
+            );
+        }
+
+        String accessToken = jwtService.generateToken(
+                request.mobileNumber(),
+                "CUSTOMER"
+        );
+
+        return ResponseEntity.ok(
+                new AuthResponse(
+                        accessToken,
+                        "Bearer",
+                        jwtProperties.expirationSeconds()
+                )
+        );
+    }
 }
